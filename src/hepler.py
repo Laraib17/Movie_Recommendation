@@ -1,6 +1,7 @@
 def check_sum_even(numbers):
-    """
-    Check if the sum of a list of numbers is even.
-
-    Args:
-        numbers (list of int): List of integers to check.   
+    for i in numbers:
+        if i % 2 != 0:
+            return False
+    return True
+def sum_of_squares(numbers):
+    return sum(i**2 for i in numbers)
