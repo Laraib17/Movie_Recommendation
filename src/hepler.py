@@ -1,11 +1,11 @@
 import requests
-def fetch_date(api):
-    try:
-        response = requests.get(api)
-        response.raise_for_status()  # Check if the request was successful
-        return response.json()  # Return the JSON data
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
+def get_stock():
+    url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&outputsize=full&apikey=demo"
+    data=requests.get(url)
+    if data.status_code==200:
+        res=data.json()
+        return res
+    else:
         return None
-j=fetch_date('https://jsonplaceholder.typicode.com/todos/1')
-print(j)
+ans=get_stock()
+print(ans['Time Series (5min)'])
