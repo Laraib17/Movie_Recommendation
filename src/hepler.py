@@ -7,4 +7,5 @@ def fetch_date(api):
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
         return None
-
+j=fetch_date('https://jsonplaceholder.typicode.com/todos/1')
+print(j)
